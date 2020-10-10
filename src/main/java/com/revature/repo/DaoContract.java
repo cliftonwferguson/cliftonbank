@@ -1,5 +1,5 @@
 package com.revature.repo;
 
-public class DoaContract {
+public interface DaoContract {
 
 }
