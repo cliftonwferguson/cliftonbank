@@ -24,17 +24,28 @@ public interface DaoContract <T, I> {
 	/*
 	 * 
 	 * @param i primary key of the instance
-	 * @return the instance wit hthe same primary key
+	 * @return the instance with the same primary key
 	 */
 	
 	T findById(I i);
 	/*
-	 * 
+	 * @param t the instance to update
+	 * @return the updated instance
 	 */
 	
 	T update(T t);
 	
+	/*
+	 * @param t the instance to create
+	 * @return the created instance
+	 */
+	
 	T create(T t);
+	
+	/*
+	 * @param i the primary key of the instance to be removed
+	 * @return how many were removed [0 if failure, 1 if success]
+	 */
 	
 	int delete(I i);
 	
