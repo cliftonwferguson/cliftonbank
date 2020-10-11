@@ -1,6 +1,7 @@
 package com.revature.repo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,20 +15,20 @@ public class ActivityDao implements DaoContract <Activity, Integer> {
   
 	@Override
 	public List<Activity> findAll() {
-		List<Activity> activitys = new LinkedList<>();
-		try(Connection conn = PlainTextConnectionUtil.getInstance().getConnection()){
-			Statement s = conn.createStatement();
-			String sql = "select * from Activity";
-			ResultSet rs = s.executeQuery(sql);
+		List<Activity> activities = new LinkedList<>();
+		String sql = "select * from public.\"Activity\"";
+		try(Connection conn = PlainTextConnectionUtil.getInstance().getConnection(); 
+				PreparedStatement ps = conn.prepareStatement(sql)){	
+			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				activitys.add(new Activity(rs.getInt(1), rs.getInt(2), rs.getString(3), null));
+				activities.add(new Activity(rs.getInt(1), rs.getInt(2), rs.getString(3), null));
 			}
 			rs.close();
-			s.close();
+			ps.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return activitys;
+		return activities;
 	}
 
 	@Override
