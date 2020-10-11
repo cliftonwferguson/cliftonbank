@@ -12,7 +12,14 @@ import com.clifton.cliftonbank.PlainTextConnectionUtil;
 import com.revature.model.Activity;
 
 public class ActivityDao implements DaoContract <Activity, Integer> {
-  
+    private AccountDao cd;
+	
+	public ActivityDao(AccountDao cd) {
+		super();
+		this.cd = cd;
+	}
+	
+
 	@Override
 	public List<Activity> findAll() {
 		List<Activity> activities = new LinkedList<>();
