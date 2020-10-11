@@ -9,7 +9,7 @@ public class Activity {
 	
 	private int account_id;
 	// private create_Date
-	private float amount;
+	private double amount;
 	private String activity_type;
 	private Account belongsTo;
 	public int getAccount_id() {
@@ -18,10 +18,10 @@ public class Activity {
 	public void setAccount_id(int account_id) {
 		this.account_id = account_id;
 	}
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(float amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	public String getActivity_type() {
@@ -41,7 +41,7 @@ public class Activity {
 		return "Activity [account_id=" + account_id + ", amount=" + amount + ", activity_type=" + activity_type
 				+ ", belongsTo=" + belongsTo + "]";
 	}
-	public Activity(int account_id, float amount, String activity_type, Account belongsTo) {
+	public Activity(int account_id, double amount, String activity_type, Account belongsTo) {
 		super();
 		this.account_id = account_id;
 		this.amount = amount;

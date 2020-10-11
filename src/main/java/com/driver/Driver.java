@@ -24,7 +24,7 @@ import com.revature.ui.ActivityMenu;
 				int selection = scan.nextInt();
 				switch(selection) {
 				case 1:
-					System.out.println(bm.ActivityMenu(scan));
+					System.out.println(bm.askSelection(scan));
 					mainMenu(scan);
 					break;
 				case 0:

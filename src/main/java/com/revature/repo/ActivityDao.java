@@ -11,24 +11,23 @@ import java.util.List;
 import com.clifton.cliftonbank.PlainTextConnectionUtil;
 import com.revature.model.Activity;
 
-public class ActivityDao implements DaoContract <Activity, Integer> {
-    private AccountDao cd;
+public class ActivityDao implements DaoContract<Activity, Integer> {
 	
-	public ActivityDao(AccountDao cd) {
+
+	public ActivityDao() {
 		super();
-		this.cd = cd;
+		
 	}
-	
 
 	@Override
 	public List<Activity> findAll() {
 		List<Activity> activities = new LinkedList<>();
-		String sql = "select * from public.\"Activity\"";
-		try(Connection conn = PlainTextConnectionUtil.getInstance().getConnection(); 
-				PreparedStatement ps = conn.prepareStatement(sql)){	
+		String sql = "select * from public.activity";
+		try (Connection conn = PlainTextConnectionUtil.getInstance().getConnection();
+				PreparedStatement ps = conn.prepareStatement(sql)) {
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				activities.add(new Activity(rs.getInt(1), rs.getInt(2), rs.getString(3), null));
+			while (rs.next()) {
+				activities.add(new Activity(rs.getInt(1), rs.getDouble(2), rs.getString(3), null));
 			}
 			rs.close();
 			ps.close();
@@ -39,9 +38,22 @@ public class ActivityDao implements DaoContract <Activity, Integer> {
 	}
 
 	@Override
-	public Activity findById(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+	public Activity findById(Integer id) {
+		String sql = "select * from public.activity where id = ?";
+		Activity activity = null;
+		try (Connection conn = PlainTextConnectionUtil.getInstance().getConnection();
+				PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				activity = new Activity(rs.getInt(1), rs.getDouble(2), rs.getString(3), null);
+			}
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return activity;
 	}
 
 	@Override

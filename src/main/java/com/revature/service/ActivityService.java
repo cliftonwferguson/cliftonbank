@@ -22,4 +22,9 @@ public class ActivityService {
 	public List<Activity> findAll() {
 		return bd.findAll();
 	}
+	
+	public Activity findById(Integer id) {
+		return bd.findById(id);
+	}
+	
 }

@@ -21,4 +21,8 @@ public class ActivityController {
 	public List<Activity> findAll() {
 		return bs.findAll();
 	} 
+	
+	public Activity findById(Integer id) {
+		return bs.findById(id);
+	}
 }
