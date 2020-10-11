@@ -10,9 +10,10 @@ public class PlainTextConnectionUtil {
 	
 	private final String url = "jdbc:postgresql://bankclifton.cr3mdvbkdi0b.us-east-2.rds.amazonaws.com"
 			+ ":5432/postgres";
-	private final String user = "jdbc_worker";
+	private final String username = "jdbc_worker";
 	private final String password = "wasspord";
 
+	//to make a singleton
 	private static PlainTextConnectionUtil instance;
 
 	private PlainTextConnectionUtil() {
@@ -26,7 +27,10 @@ public class PlainTextConnectionUtil {
 		}
 		return instance;
 	}
-	
+	//to create a connection to the db
+	public Connection getConnection() throws SQLException{
+		return DriverManager.getConnection(url, username, password);
+	}
 	
 	
 }
