@@ -24,7 +24,7 @@ import com.revature.ui.ActivityMenu;
 				System.out.println("Please select from the following options.");
 				System.out.println("1. Employee Access");
 				System.out.println("2. New Customer");
-				System.out.println("3. Customer Account Activity");
+				System.out.println("3. Customer Activity");
 				int selection = scan.nextInt();
 				switch(selection) {
 				case 1:
@@ -35,7 +35,7 @@ import com.revature.ui.ActivityMenu;
 					accountMenu.createAccount(scan);
 					break;
 				case 3:
-					activityMenu.employeeSelection(scan);
+					activityMenu.customerSelection(scan);
 					break;
 				case 0:
 					System.exit(0);

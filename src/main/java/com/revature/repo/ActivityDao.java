@@ -38,12 +38,12 @@ public class ActivityDao implements DaoContract<Activity, Integer> {
 	}
 
 	@Override
-	public Activity findById(Integer id) {
+	public Activity findById(Integer account_id) {
 		String sql = "select * from public.activity where id = ?";
 		Activity activity = null;
 		try (Connection conn = PlainTextConnectionUtil.getInstance().getConnection();
 				PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setInt(1, id);
+			ps.setInt(1, account_id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				activity = new Activity(rs.getInt(1), rs.getDouble(2), rs.getString(3), null);
