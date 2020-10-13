@@ -22,13 +22,13 @@ import com.revature.ui.ActivityMenu;
 				System.out.println(" ");
 				System.out.println("Clifton Bank Overview");
 				System.out.println("Please select from the following options.");
-				System.out.println("1. Account Activity");
+				System.out.println("1. Employee Access");
 				System.out.println("2. New Customer");
-				System.out.println("3. Employee Access");
+				System.out.println("3. Customer Account Activity");
 				int selection = scan.nextInt();
 				switch(selection) {
 				case 1:
-					System.out.println(activityMenu.askSelection(scan));
+					System.out.println(activityMenu.employeeSelection(scan));
 					mainMenu(scan);
 					break;
 				case 2:

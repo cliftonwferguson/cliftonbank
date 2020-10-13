@@ -1,6 +1,9 @@
 package com.revature.service;
 
+import java.util.List;
+
 import com.revature.model.Account;
+
 import com.revature.repo.AccountDao;
 
 public class AccountService {
@@ -24,6 +27,9 @@ public class AccountService {
 		return result;
 	}
 	
+	public List<Account> findAll() {
+		return ad.findAll();
+	}
 	
 	
 	

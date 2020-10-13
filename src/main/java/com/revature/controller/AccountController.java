@@ -1,7 +1,10 @@
 package com.revature.controller;
 
 
+import java.util.List;
+
 import com.revature.model.Account;
+import com.revature.model.Activity;
 import com.revature.service.AccountService;
 
 public class AccountController {
@@ -25,4 +28,8 @@ public class AccountController {
 				return e.getMessage();
 			}
 	}
+
+	public List<Account> findAll() {
+		return ac.findAll();
+	} 
 }

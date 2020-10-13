@@ -70,7 +70,7 @@ public class Account {
 	}
 	
 	
-	public Account(float currentBalance, String userName2, String passWord2) {
+	public Account(float currentBalance, String userName2, String passWord2, boolean b, float f) {
 		 this.current_balance = currentBalance;
 		 this.username = userName2;
 		 this.password = passWord2;
