@@ -57,15 +57,24 @@ public class Account {
 				+ ", current_balance=" + current_balance + ", is_customer=" + is_customer + ", activity=" + activity
 				+ "]";
 	}
-	public Account(int account_id, String username, String password, float current_balance, boolean is_customer,
-			Set<Activity> activity) {
+	public Account(String username, String password, float current_balance, boolean is_customer
+			) {
 		super();
-		this.account_id = account_id;
+		
 		this.username = username;
 		this.password = password;
 		this.current_balance = current_balance;
 		this.is_customer = is_customer;
-		this.activity = activity;
+		activity = null;
+		
+	}
+	
+	
+	public Account(float currentBalance, String userName2, String passWord2) {
+		 this.current_balance = currentBalance;
+		 this.username = userName2;
+		 this.password = passWord2;
+		 this.is_customer = false;
 	}
 	
 	

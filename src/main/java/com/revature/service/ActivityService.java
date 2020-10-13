@@ -11,7 +11,7 @@ public class ActivityService {
 	private ActivityDao bd;
 	
 	public ActivityService() {
-		this(new ActivityDao(new AccountDao()));
+		this(new ActivityDao());
 	}
 
 	public ActivityService(ActivityDao bd) {

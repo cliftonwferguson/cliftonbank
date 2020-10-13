@@ -18,10 +18,21 @@ public class ActivityMenu {
 		this.bc = bc;
 	}
     
+	 public String employeeSelection(Scanner scan) {
+		 System.out.println("Please make a selection");
+		 System.out.println("1. Get all Accounts");
+		 System.out.println("2. View All Activity");
+		 int selection = scan.nextInt();
+		 switch(selection) {
+		 case 1:
+			 return bc.findAll().toString();
+		 }
+	 }
+	
 	 public String askSelection(Scanner scan) {
 		 System.out.println("Please make a selection");
 		 System.out.println("1. get all accounts");
-		 System.out.println("2. find activity by id");
+		 System.out.println("2. View activities");
 		 System.out.println("0. return");
 		 int selection = scan.nextInt();
 		 switch(selection) {

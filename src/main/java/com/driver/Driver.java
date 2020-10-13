@@ -2,13 +2,15 @@ package com.driver;
 
 import java.util.Scanner;
 
+import com.revature.ui.AccountMenu;
 import com.revature.ui.ActivityMenu;
 
 
       
 		public class Driver {
 		    
-			 private static ActivityMenu bm = new ActivityMenu();
+			 private static ActivityMenu activityMenu = new ActivityMenu();
+			 private static AccountMenu accountMenu = new AccountMenu();
 			 
 			 public static void main(String[] args) {
 				Scanner scanner = new Scanner(System.in);
@@ -17,20 +19,28 @@ import com.revature.ui.ActivityMenu;
 			}
 			 
 			private static void mainMenu(Scanner scan) {
-				System.out.println("Account Activity Overview");
-				System.out.println("Would you like to check your account?");
-				System.out.println("1. activity");
-				System.out.println("0. exit");
+				System.out.println(" ");
+				System.out.println("Clifton Bank Overview");
+				System.out.println("Please select from the following options.");
+				System.out.println("1. Account Activity");
+				System.out.println("2. New Customer");
+				System.out.println("3. Employee Access");
 				int selection = scan.nextInt();
 				switch(selection) {
 				case 1:
-					System.out.println(bm.askSelection(scan));
+					System.out.println(activityMenu.askSelection(scan));
 					mainMenu(scan);
+					break;
+				case 2:
+					accountMenu.createAccount(scan);
+					break;
+				case 3:
+					activityMenu.employeeSelection(scan);
 					break;
 				case 0:
 					System.exit(0);
 				default:
-					System.out.println("please chose a valid option");
+					System.out.println("Please chose a valid option");
 					mainMenu(scan);
 				}
 			}
