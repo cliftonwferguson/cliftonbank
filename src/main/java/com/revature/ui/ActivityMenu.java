@@ -35,7 +35,8 @@ public class ActivityMenu {
 		default:
 			return employeeSelection(scan);
 		case 2:
-			return bc.findAll().toString();
+			return printActivities(bc.findAll());
+			//return bc.findAll().toString();
 		case 0:
 
 			return employeeSelection(scan);
@@ -84,5 +85,13 @@ public class ActivityMenu {
 		}
 		return builder.toString();
 	}
+	
+	private String printActivities(List<Activity> activities) {
+		StringBuilder builder = new StringBuilder();
+		for (Activity activities1 : activities) {
+			builder.append(activities1);
+			builder.append("\n");
+		} return builder.toString();
+	} 
 
 }
