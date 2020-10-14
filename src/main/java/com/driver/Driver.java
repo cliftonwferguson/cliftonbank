@@ -36,7 +36,8 @@ public class Driver {
 				accountMenu.createAccount(scan);
 				break;
 			case 3:
-				activityMenu.customerSelection(scan);
+				System.out.println(activityMenu.customerSelection(scan));
+				
 				break;
 			case 0:
 				System.exit(0);

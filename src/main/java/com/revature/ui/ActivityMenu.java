@@ -68,12 +68,12 @@ public class ActivityMenu {
 		System.out.println("what is your Account Id?");
 		int accountId = scan.nextInt();
 		System.out.println("How much would you like to deposit/withdraw?");
-		int amount = scan.nextInt();
-
-		if (amount > 0) {
-			// Activity activity = new Activity(accountId, amount, "deposit");
-		}
-		throw new UnsupportedOperationException("todo");
+		double amount = scan.nextDouble();
+        System.out.println("Withdraw or Deposit?");
+		String activityType = scan.next();
+		Activity activity = new Activity(accountId, amount, activityType);
+		String result = bc.insert(activity);
+		return result;
 	}
 
 	private String printAccounts(List<Account> accounts) {
