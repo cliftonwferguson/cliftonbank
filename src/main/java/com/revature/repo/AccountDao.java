@@ -20,12 +20,14 @@ private static final Logger accountLog = Logger.getLogger(AccountDao.class);
 	@Override
 	public List<Account> findAll() {
 		List<Account> account = new LinkedList<>();
-		String sql = "select * from public.account";
+
+		String sql = "select username, password, is_customer, current_balance from public.account";
 		try (Connection conn = PlainTextConnectionUtil.getInstance().getConnection();
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				account.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getFloat(5)));
+				//public Account(float currentBalance, String userName, String passWord) {
+				account.add(new Account(rs.getString(1), rs.getString(2), rs.getBoolean(3), rs.getFloat(4)));
 			}
 			rs.close();
 			ps.close();

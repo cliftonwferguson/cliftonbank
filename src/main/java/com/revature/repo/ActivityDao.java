@@ -27,6 +27,7 @@ public class ActivityDao implements DaoContract<Activity, Integer> {
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
+				
 				activities.add(new Activity(rs.getInt(1), rs.getDouble(2), rs.getString(3), null));
 			}
 			rs.close();

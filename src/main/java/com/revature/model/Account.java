@@ -55,10 +55,11 @@ public class Account {
 	public String toString() {
 		return "Account [account_id=" + account_id + ", username=" + username + ", password=" + password
 				+ ", current_balance=" + current_balance + ", is_customer=" + is_customer + ", activity=" + activity
-				+ "]";
+				+ "]\n";
+		
 	}
-	public Account(String username, String password, float current_balance, boolean is_customer
-			) {
+	//String sql = "select username, password, is_customer, current_balance from public.account";
+	public Account(String username, String password, boolean is_customer, float current_balance) {
 		super();
 		
 		this.username = username;
@@ -69,11 +70,11 @@ public class Account {
 		
 	}
 	
-	
-	public Account(float currentBalance, String userName2, String passWord2, boolean b, float f) {
+	//String sql = "select account_id, username, password, is_customer, current_balance from public.account";
+	public Account(float currentBalance, String userName, String passWord) {
 		 this.current_balance = currentBalance;
-		 this.username = userName2;
-		 this.password = passWord2;
+		 this.username = userName;
+		 this.password = passWord;
 		 this.is_customer = false;
 	}
 	
